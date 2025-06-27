@@ -1,0 +1,238 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('bday.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay */
+  z-index: -1;
+}
+
+.birthday-cake {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.cake-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 
+/* Cake Styling */
+.cake {
+  position: relative;
+  width: 120px;
+  height: 160px;
+  margin-top: 2rem;
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background: #8B4513;
+  border-radius: 10px;
+  left: 0;
+}
+
+.layer-bottom { bottom: 0; background: #a0522d; }
+.layer-middle { bottom: 40px; background: #cd853f; }
+.layer-top    { bottom: 80px; background: #deb887; }
+
+.icing {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: #fff0f5;
+  border-radius: 50%;
+  bottom: 120px;
+  z-index: 2;
+}
+
+.candle {
+  position: absolute;
+  width: 10px;
+  height: 30px;
+  background: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 140px;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flame {
+  width: 10px;
+  height: 10px;
+  background: gold;
+  border-radius: 50%;
+  margin-top: -10px;
+  animation: flicker 0.4s infinite alternate;
+  box-shadow: 0 0 8px 4px rgba(255, 215, 0, 0.6);
+}
+@keyframes flicker {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.3); opacity: 0.6; }
+}
+
+
+/* Balloons */
+.balloons {
+  position: absolute;
+  top: -50px;
+  display: flex;
+  gap: 20px;
+}
+
+.balloon {
+  width: 30px;
+  height: 40px;
+  border-radius: 50% 50% 50% 50%;
+  animation: float 4s ease-in-out infinite;
+  position: relative;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background: #555;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+}
+
+.red   { background: #ff4d4d; animation-delay: 0s; }
+.blue  { background: #3399ff; animation-delay: 1s; }
+.green { background: #33cc33; animation-delay: 2s; }
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+header.hero {
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 800px;
+  animation: morphFly 2s ease forwards;
+}
+.gallery {
+  padding: 3rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2rem;
+  backdrop-filter: blur(5px);
+  text-align: center
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 0 1rem;
+}
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.videos {
+  margin: 4rem auto;
+  max-width: 1000px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
+  backdrop-filter: blur(5px);
+  animation: morphFly 2s ease forwards;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.grid img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.grid img:hover {
+  transform: scale(1.05);
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  transition: transform 0.5s ease;
+}
+
+img:hover, video:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 2px solid white;
+  animation: morphFly 2s ease forwards;
+}
+
+/* Morph Fly-in Animation */
+@keyframes morphFly {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(50px);
+    border-radius: 50% 20% 30% 70% / 30% 50% 20% 60%;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    border-radius: 2rem;
+  }
+}
